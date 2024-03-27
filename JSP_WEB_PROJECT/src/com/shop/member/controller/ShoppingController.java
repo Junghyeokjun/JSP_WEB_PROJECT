@@ -13,15 +13,15 @@ import com.shop.member.command.Command;
 import com.shop.member.command.MemberJoinCommand;
 import com.shop.member.command.MemberJoinPageCommand;
 import com.shop.member.command.MemberListCommand;
-import com.shop.member.command.ShopMemberJoinPageCommand;
+import com.shop.member.command.SalesMemberListCommand;
 import com.shop.member.command.ThisMemberCommand;
-import com.shop.member.command.ThisMemberUpdateCommand;
+import com.shop.member.command.ThisMemberModifyCommand;
 
 
 /**
  * Servlet implementation class ShoppingController
  */
-@WebServlet("/shop/")
+@WebServlet("/shop/*")
 public class ShoppingController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,14 +30,13 @@ public class ShoppingController extends HttpServlet {
      */
     public ShoppingController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// get, post 상관없이 해당 함수 실행
 		actionDo(request,response);
 	}
 
@@ -45,12 +44,11 @@ public class ShoppingController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// get, post 상관없이 해당 함수 실행
 		actionDo(request,response);
 	}
 
 	private void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		
 		String viewPage = null;
@@ -65,13 +63,13 @@ public class ShoppingController extends HttpServlet {
 		System.out.println("comm : " + comm);
 		
 		if(comm.equals("/shop/index.do")) {
-			viewPage = "/shopindex.jsp";
+			viewPage = "/shop_index.jsp";
 		}else if(comm.equals("/shop/join_page.do")) {
 			// 회원가입 페이지
 			command = new MemberJoinPageCommand();
 			command.execute(request, response);			
-			viewPage = "/shopmemberjoinpage.jsp";
-		}else if(comm.equals("/shop/insert.do")) {
+			viewPage = "/shop_memberjoinpage.jsp";
+		}else if(comm.equals("/shop/join.do")) {
 			// 회원가입 절차 밟기
 			command = new MemberJoinCommand();
 			command.execute(request, response);
@@ -80,15 +78,20 @@ public class ShoppingController extends HttpServlet {
 			// 회원 리스트 페이지
 			command = new MemberListCommand();
 			command.execute(request, response);
-			viewPage = "/shopmemberlist.jsp";
-		}else if(comm.equals("/shop/update_page.do")) {
-			// 특정 회원 정보 출력 페이지
+			viewPage = "/shop_memberlist.jsp";
+		}else if(comm.equals("/shop/sales/list.do")) {
+			// 특정 회원 정보가 필요한 페이지에 사용됨
+			command = new SalesMemberListCommand();
+			command.execute(request, response);
+			viewPage = "/shop_salesmember.jsp";
+		}else if(comm.equals("/shop/modify_page.do")) {
+			// 특정 회원 정보가 필요한 페이지에 사용됨
 			command = new ThisMemberCommand();
 			command.execute(request, response);
-			viewPage = "/shopmember.jsp";
-		}else if(comm.equals("/shop/update.do")) {
+			viewPage = "/shop_member.jsp";
+		}else if(comm.equals("/shop/modify.do")) {
 			// 특정 회원 정보 수정 절차 밟기
-			command = new ThisMemberUpdateCommand();
+			command = new ThisMemberModifyCommand();
 			command.execute(request, response);
 			viewPage = "/shop/list.do";
 		}

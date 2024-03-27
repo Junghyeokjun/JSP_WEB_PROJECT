@@ -1,18 +1,21 @@
 package com.shop.member.command;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.shop.member.dao.ShoppingDao;
+import com.shop.member.dto.TotalPriceDto;
 
-public class MemberJoinPageCommand implements Command {
+public class SalesMemberListCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		// 해당 회원 번호 받기
+		// 매출 순위 출력
 		ShoppingDao dao = new ShoppingDao();
-		int memberNum = dao.memberNo();
-		request.setAttribute("memberNo", memberNum);
+		List<TotalPriceDto> salesList = dao.salesList();
+		request.setAttribute("salesList", salesList);
 	}
 
 }
