@@ -33,11 +33,16 @@
 			}else{
 				$("#tuition").val($("#teacherCode option:selected").attr('class'));
 			}
+			if(isNaN($("#tuition").val())){
+				$("#tuition").val("");
+			}
 		})
 		$("#teacherCode").change(function(){
 			$("#tuition").val($("#teacherCode option:selected").attr('class'));
 			if(memberGrade=='VIP'){
 				$("#tuition").val(Number($("#teacherCode option:selected").attr('class'))/2);
+			}else{
+				$("#tuition").val($("#teacherCode option:selected").attr('class'));
 			}
 		})
 		$("form").submit(function(e){

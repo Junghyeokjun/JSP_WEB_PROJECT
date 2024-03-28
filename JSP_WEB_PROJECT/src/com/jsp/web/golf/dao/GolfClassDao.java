@@ -65,11 +65,56 @@ public class GolfClassDao {
 		return dtos;
 
 	}
-	public void apply(GolfClassDto dto) {
+	public List<GolfClassDto> distinctList() {
+
+		List<GolfClassDto> dtos = new ArrayList<GolfClassDto>();
 
 		Connection conn = null;
 		PreparedStatement psmt = null;
+		ResultSet rs = null;
 
+		String sql = "select distinct CLASS_AREA from TBL_CLASS_202201";
+
+		try {
+			conn = dataSource.getConnection();
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				String registMonth = null;
+				String cNo = null;
+				String classArea = rs.getString("CLASS_AREA");
+				int tuition = 0;
+				String teacherCode = null;
+
+				GolfClassDto dto = new GolfClassDto(registMonth,cNo,classArea,tuition,teacherCode);
+				dtos.add(dto);
+			}
+
+		} catch (Exception e) {
+
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (psmt != null)
+					psmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+			}
+		}
+
+		return dtos;
+
+	}
+
+	public int apply(GolfClassDto dto) {
+
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		int rn=0;
+		
 		String sql = "insert into TBL_CLASS_202201 values(?,?,?,?,?)";
 
 		try {
@@ -86,7 +131,7 @@ public class GolfClassDao {
 			psmt.setInt(4, dto.getTuition());
 			psmt.setString(5, dto.getTeacherCode());
 
-			int rn = psmt.executeUpdate();
+			rn = psmt.executeUpdate();
 			System.out.println("apply 된 갯수" + rn);
 
 		} catch (Exception e) {
@@ -100,6 +145,6 @@ public class GolfClassDao {
 			} catch (Exception e2) {
 			}
 		}
-
+		return rn;
 	}
 }

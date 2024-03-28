@@ -15,7 +15,7 @@ public class ClassListCommand implements GCommand {
 		GolfMemberDao memberDao = new GolfMemberDao();
 		GolfTeacherDao teacherDao = new GolfTeacherDao();
 		
-		request.setAttribute("classDtos", classDao.list());
+		request.setAttribute("classDtos", classDao.distinctList());
 		request.setAttribute("members", memberDao.list());
 		request.setAttribute("teachers", teacherDao.list());
 		

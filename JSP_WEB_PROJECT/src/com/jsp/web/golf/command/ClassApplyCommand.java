@@ -18,7 +18,8 @@ public class ClassApplyCommand implements GCommand {
 		
 		GolfClassDao dao=new GolfClassDao();
 		GolfClassDto dto= new GolfClassDto(registMonth,cNo,classArea,tuition,teacherCode);
-		dao.apply(dto);
+		int rn=dao.apply(dto);
+		request.setAttribute("resultNo",rn);
 	}
 
 }

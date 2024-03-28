@@ -12,6 +12,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
 </head>
 <style>
   header,footer {
@@ -19,7 +21,13 @@
   }
 
 </style>
-
+<script type="text/javascript">
+	$(document).ready(function(){
+		if($("#success").attr('class')=='0'){
+			alert('수강신청에 실패하였습니다.');
+		}
+	})
+</script>
 <body>
   <div class="d-flex flex-column justify-content-between" style="height: 100vh;">
     <nav class="navbar navbar-expand-lg bg-dark " data-bs-theme="dark">
@@ -77,6 +85,7 @@
       <!-- table end -->
       <div class="container text-center">
         <h1 class="my-5">골프연습장 회원관리 프로그램</h1>
+        <span id="success" class="${resultNo}"></span>
       </div>
       <!-- table end -->
     </div>
