@@ -20,7 +20,7 @@
     </script>
 <style>
 	section{
-		background-color: rgb(180, 180, 180);
+		background-color:  #e2e3e5;
 	}
 </style>
 </head>
@@ -79,11 +79,11 @@
 			</div>
 		</div>
 	</nav>
-	<section class="col p-5">
+	<section class="col p-5 w-100">
 		<div class="text-center">
 			<h1>쇼핑몰 회원관리 프로그램</h1>
 		</div>
-		<div class="p-4">
+		<div class="p-5 w-75 mx-auto">
 			<p>
 				쇼핑몰 회원 정보와 회원매출 정보 데이터베이스를 구축하고 회원관리 프로그램을 작성하는 프로그램이다.<br>
 				프로그램 작성 순서<br> 1. 회원정보 테이블을 생성한다.<br> 2. 매출정보 테이블을 생성한다.<br>

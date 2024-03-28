@@ -1,7 +1,7 @@
 package com.shop.member.dao;
 
+//import java.sql.DriverManager;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
@@ -11,61 +11,110 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import com.shop.member.dto.MemberDto;
 import com.shop.member.dto.TotalPriceDto;
 
 public class ShoppingDao {
-	private String driver = "oracle.jdbc.driver.OracleDriver";
-	private String url = "jdbc:oracle:thin:@//localhost:1521/xe";
-	private String user = "scott";
-	private String password = "tiger";
-
+//	private String driver = "oracle.jdbc.driver.OracleDriver";
+//	private String url = "jdbc:oracle:thin:@//localhost:1521/xe";
+//	private String user = "scott";
+//	private String password = "tiger";
+//
+//	public ShoppingDao() {
+//		try {
+//			Class.forName(driver);
+//		} catch (Exception e) {
+//
+//		}
+//	}
+	
+	DataSource dataSource = null;	
+	
 	public ShoppingDao() {
 		try {
-			Class.forName(driver);
-		} catch (Exception e) {
-
+			Context context = new InitialContext();
+			dataSource = (DataSource)context.lookup("java:comp/env/jdbc/oracle");
+		} catch (NamingException e) {
+			
 		}
 	}
-
-	// String -> Timestamp
-	public Timestamp strToTs(String joinDateStr) {
-		Timestamp timestamp = null;
-		try {
-            // SimpleDateFormat을 사용하여 문자열을 날짜로 파싱
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            Date parsedDate = dateFormat.parse(joinDateStr);
-
-            // Date 객체를 long 값으로 변환
-            long timeInMillis = parsedDate.getTime();
-
-            // Timestamp 객체 생성
-            timestamp = new Timestamp(timeInMillis);
-
-            // 변환된 Timestamp 객체 사용
-            System.out.println("Timestamp: " + timestamp);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }		
-		return timestamp;
+	
+	// 화면에 노출되는 등급 표시하기(따로 메서드 활용) 
+	public String gradeFormat(String grade) {
+		String meaning = null;
+		if(grade.equals("A"))
+			meaning = "VIP";
+		else if(grade.equals("B"))
+			meaning = "일반";
+		else if(grade.equals("C"))
+			meaning = "직원";
+		return meaning;
 	}
 	
-	// 가입 페이지에 전달하는, 자동 시퀀스 값
-	public int memberNo() {
-		// 회원 번호를 저장하는 변수
-		int memberNum = 0;
+	// 화면에 보여줄 날짜 형식으로 바꿔주기 
+	// Timestamp -> String
+	public String listPageDateFmt(Timestamp joinDate) {
+		SimpleDateFormat listDate = new SimpleDateFormat("yyyy-MM-dd");
+		String dateFormat = listDate.format(joinDate);
+		return dateFormat;
+	}	
+	
+	// 회원가입 페이지에 보여줄, 날짜형식으로 바꿔주기 
+	public String joinPageDateFmt(Timestamp joinDate) {
+		SimpleDateFormat listDate = new SimpleDateFormat("yyyyMMdd");
+		String dateFormat = listDate.format(joinDate);
+		return dateFormat;
+	}
+	
+	// String -> Timestamp
+	public Timestamp strToTs(String joinDateStr) {
+	    try {
+	        // SimpleDateFormat을 사용하여 문자열을 Timestamp로 변환
+	        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+	        // 문자열을 Date 객체로 파싱
+	        Date parsedDate = dateFormat.parse(joinDateStr);
+	        // Date 객체를 Timestamp로 변환
+	        Timestamp timestamp = new Timestamp(parsedDate.getTime());
+	        // 변환된 Timestamp 객체 반환
+	        System.out.println("Timestamp: " + timestamp);
+	        return timestamp;
+	    } catch (ParseException e) {
+	        // 예외 처리: 변환에 실패한 경우
+	        e.printStackTrace();
+	        return null;
+	    }
+	}
+	
+	// 가입 페이지에 전달하는, 자동 시퀀스와 날짜 값
+	public MemberDto joinPageSet() {
+		
+		MemberDto newMemberSet = new MemberDto();
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String sql = "select MEMBER_TBL_SEQ.nextval memberNo from dual";
+		//  MEMBER_TBL_SEQ.nextval 은 활용하지 않을 예정. 
+		// 	String sql = "select MEMBER_TBL_SEQ.nextval memberNo, sysdate today from dual";
+		// 	시퀀스 생성도 진행해야 하기 때문. 해당 부분은 요구사항에 없으므로 취소함. 
+		String sql = "SELECT max(membernum)+1 memberNo, sysdate today  FROM member_tbl_02";
+
 		try {
-			conn = DriverManager.getConnection(url, user, password);
+			//conn = DriverManager.getConnection(url, user, password);
+			conn = dataSource.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				memberNum = rs.getInt("memberNo");
+				int memberNum = rs.getInt("memberNo");
+				Timestamp joinDate = rs.getTimestamp("today");
+				
+				newMemberSet.setMemberNum(memberNum);
+				newMemberSet.setJoinDate(joinPageDateFmt(joinDate));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -81,9 +130,10 @@ public class ShoppingDao {
 				e2.printStackTrace();
 			}
 		}		
-		return memberNum;
+		return newMemberSet;
 	}
 	
+	// 입력 과정
 	public void insertMember(MemberDto member) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;	
@@ -91,13 +141,14 @@ public class ShoppingDao {
 					+ "member_tbl_02(MEMBERNUM, MEMBERNAME, PHONE, ADDRESS, JOINDATE, GRADE, CITY) "
 					+ "values (?,?,?,?,?,?,?)";
 		try {
-			conn = DriverManager.getConnection(url, user, password);
+			//conn = DriverManager.getConnection(url, user, password);
+			conn = dataSource.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, member.getMemberNum());
 			pstmt.setString(2, member.getMemberName());
 			pstmt.setString(3, member.getPhone());
 			pstmt.setString(4, member.getAddress());
-			pstmt.setTimestamp(5, member.getJoinDate());
+			pstmt.setTimestamp(5, strToTs(member.getJoinDate()));
 			pstmt.setString(6, member.getGrade());
 			pstmt.setString(7, member.getCity());
 			int result = pstmt.executeUpdate();
@@ -132,9 +183,10 @@ public class ShoppingDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String sql = "select * from member_tbl_02";
+		String sql = "select * from member_tbl_02 order by memberNum asc";
 		try {
-			conn = DriverManager.getConnection(url, user, password);
+			//conn = DriverManager.getConnection(url, user, password);
+			conn = dataSource.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
@@ -143,8 +195,8 @@ public class ShoppingDao {
 				String memberName = rs.getString("memberName");
 				String phone = rs.getString("phone");
 				String address = rs.getString("address");
-				Timestamp joinDate = rs.getTimestamp("joinDate");
-				String grade = rs.getString("grade");
+				String joinDate = listPageDateFmt(rs.getTimestamp("joinDate"));
+				String grade = gradeFormat( rs.getString("grade"));
 				String city = rs.getString("city");
 
 				MemberDto member = new MemberDto(memberNum, memberName, phone, address, joinDate, grade, city);
@@ -182,7 +234,8 @@ public class ShoppingDao {
 
 		String sql = "select * from member_tbl_02 where memberNum = ?";
 		try {
-			conn = DriverManager.getConnection(url, user, password);
+			//conn = DriverManager.getConnection(url, user, password);
+			conn = dataSource.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, memberNumInt);			
 			rs = pstmt.executeQuery();
@@ -192,7 +245,7 @@ public class ShoppingDao {
 				String memberName = rs.getString("memberName");
 				String phone = rs.getString("phone");
 				String address = rs.getString("address");
-				Timestamp joinDate = rs.getTimestamp("joinDate");
+				String joinDate = joinPageDateFmt(rs.getTimestamp("joinDate"));
 				String grade = rs.getString("grade");
 				String city = rs.getString("city");
 
@@ -235,14 +288,15 @@ public class ShoppingDao {
 					+ "group by memb.MEMBERNUM, memb.MEMBERNAME, memb.GRADE "
 					+ "order by total desc";
 		try {
-			conn = DriverManager.getConnection(url, user, password);
+			//conn = DriverManager.getConnection(url, user, password);
+			conn = dataSource.getConnection();
 			pstmt = conn.prepareStatement(sql);		
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				// dto에 넣고, 이를 리스트에 추가
 				int memberNum = rs.getInt("memberNum");
 				String memberName = rs.getString("memberName");;
-				String grade = rs.getString("grade");
+				String grade = gradeFormat(rs.getString("grade")); 
 				int totalPrice = rs.getInt("total");
 				
 				TotalPriceDto memberSales = new TotalPriceDto(memberNum, memberName, grade, totalPrice);				
@@ -269,18 +323,23 @@ public class ShoppingDao {
 	
 	
 	// 멤버 정보 수정 과정
-	public void updateMember(MemberDto member) {
+	public void updateMember(MemberDto member, int thisNum) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update member_tbl_02 set phone = ?, address = ?, city = ? where memberNum = ?";
+		String sql = "update member_tbl_02 set memberNum = ?, memberName = ?, phone = ?, address = ?, joinDate = ?, grade = ?, city = ? where memberNum = ?";
 		try {
-			conn = DriverManager.getConnection(url, user, password);
+			//conn = DriverManager.getConnection(url, user, password);
+			conn = dataSource.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, member.getPhone());
-			pstmt.setString(2, member.getAddress());
-			pstmt.setString(3, member.getCity());
-			pstmt.setInt(4, member.getMemberNum());
+			pstmt.setInt(1, member.getMemberNum());
+			pstmt.setString(2, member.getMemberName());
+			pstmt.setString(3, member.getPhone());
+			pstmt.setString(4, member.getAddress());
+			pstmt.setTimestamp(5, strToTs(member.getJoinDate()));
+			pstmt.setString(6, member.getGrade());
+			pstmt.setString(7, member.getCity());
+			pstmt.setInt(8, thisNum);
 			int result = pstmt.executeUpdate();
 			
 			// 수정여부 체크

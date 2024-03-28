@@ -34,15 +34,23 @@ public class TotalPriceDto {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
+	
+	// 화면에 노출되는 등급 표시하기(따로 메서드 활용)
+	public String getMembergrade() {
+		String meaning = null;
+		if(this.grade.equals("A"))
+			meaning = "VIP";
+		else if(this.grade.equals("B"))
+			meaning = "일반";
+		else if(this.grade.equals("C"))
+			meaning = "직원";
+		return meaning;
+	}
+	
 	public int getTotalPrice() {
 		return totalPrice;
 	}
 	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
-	}
-	
-	
-
-	
-	
+	}	
 }

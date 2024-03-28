@@ -85,7 +85,7 @@ public class ShoppingController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "/shop_salesmember.jsp";
 		}else if(comm.equals("/shop/modify_page.do")) {
-			// 특정 회원 정보가 필요한 페이지에 사용됨
+			// 수정할 회원 정보 보여주기
 			command = new ThisMemberCommand();
 			command.execute(request, response);
 			viewPage = "/shop_member.jsp";
