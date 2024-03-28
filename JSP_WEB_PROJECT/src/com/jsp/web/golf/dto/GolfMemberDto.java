@@ -14,7 +14,8 @@ public class GolfMemberDto {
 	private String phone;
 	private String address;
 	private String grade;
-	
+
+
 	public GolfMemberDto() {
 		
 	}
@@ -66,6 +67,8 @@ public class GolfMemberDto {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
+
+
 	
 	
 }

@@ -9,7 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jsp.web.golf.command.ClassApplyCommand;
+import com.jsp.web.golf.command.ClassListCommand;
 import com.jsp.web.golf.command.GCommand;
+import com.jsp.web.golf.command.MemberListCommand;
+import com.jsp.web.golf.command.TeacherListCommand;
+import com.jsp.web.golf.command.TeacherSalesListCommand;
 
 
 
@@ -60,21 +65,25 @@ public class GolfController extends HttpServlet {
 		System.out.println("com:" + com);
 		
 		if (com.equals("/golf/teacher.do")) {
-			command = new teacherListCommand();
+			command = new TeacherListCommand();
 			command.execute(request, response);
 			viewPage = "/golfTeacher.jsp";
 		}else if(com.equals("/golf/class.do")) {
-			command = new classListCommand();
+			command = new ClassListCommand();
 			command.execute(request, response);
-			viewPage = "/golf/apply.jsp";
+			viewPage = "/golfapply.jsp";
 		}else if(com.equals("/golf/apply.do")) {
-			command = new memberApplyCommand();
+			command = new ClassApplyCommand();
 			command.execute(request, response);
 			viewPage = "/golf.jsp";
 		}else if(com.equals("/golf/member.do")) {
-			command = new memberListCommand();
+			command = new MemberListCommand();
 			command.execute(request, response);
 			viewPage = "/golfmember.jsp";
+		}else if (com.equals("/golf/teachersales.do")) {
+			command = new TeacherSalesListCommand();
+			command.execute(request, response);
+			viewPage = "/golfTeacherSales.jsp";
 		}
 
 

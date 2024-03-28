@@ -53,7 +53,10 @@ public class GolfTeacherDto {
 		this.classPrice = classPrice;
 	}
 	public String getTeacherRegistDate() {
-		return teacherRegistDate;
+		String formatDate=teacherRegistDate.substring(0,4)+"년"+
+						  teacherRegistDate.substring(4,6)+"월"+
+						  teacherRegistDate.substring(6)+"일";
+		return formatDate;
 	}
 	public void setTeacherRegistDate(String teacherRegistDate) {
 		this.teacherRegistDate = teacherRegistDate;
