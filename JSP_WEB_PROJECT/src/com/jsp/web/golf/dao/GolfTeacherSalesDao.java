@@ -29,7 +29,7 @@ public class GolfTeacherSalesDao {
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
-
+		//강사 매출액 산정에 필요한 정보를 받아오는 함수
 		String sql = "SELECT TEACHER.TEACHER_CODE,TEACHER.CLASS_NAME,TEACHER.TEACHER_NAME, SUM(CLASS.TUITION) TUITION FROM TBL_CLASS_202201 CLASS, TBL_TEACHER_202201 TEACHER " + 
 					 "WHERE CLASS.TEACHER_CODE=TEACHER.TEACHER_CODE " + 
 					 "GROUP BY TEACHER.TEACHER_CODE,TEACHER.CLASS_NAME ,TEACHER.TEACHER_NAME " + 

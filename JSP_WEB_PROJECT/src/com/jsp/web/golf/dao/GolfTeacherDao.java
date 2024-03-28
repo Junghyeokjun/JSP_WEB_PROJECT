@@ -23,7 +23,7 @@ public class GolfTeacherDao {
 		}
 	}
 	public List<GolfTeacherDto> list() {
-
+		//강사 정보를 받아오는 함수
 		List<GolfTeacherDto> dtos = new ArrayList<GolfTeacherDto>();
 
 		Connection conn = null;

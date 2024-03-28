@@ -23,6 +23,7 @@ public class GolfSingUpJoinDao {
 		}
 	}
 	public List<GolfSignUpJoinDto> list() {
+		//수강 신청에 필요한 정보를 받아오는 함수
 
 		List<GolfSignUpJoinDto> dtos = new ArrayList<GolfSignUpJoinDto>();
 

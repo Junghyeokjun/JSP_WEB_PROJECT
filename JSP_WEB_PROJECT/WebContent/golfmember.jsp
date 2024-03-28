@@ -22,6 +22,7 @@
 </style>
 <script type="text/javascript">
     $(document).ready(function(){
+    	/* 수강료를 특정 형식으로 바꿔주는 이벤트 */
     	$(".price").each(function(index,item){
     		$(item).text($(item).text().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
     	})

@@ -65,23 +65,23 @@ public class GolfController extends HttpServlet {
 		System.out.println("com:" + com);
 		
 		if (com.equals("/golf/teacher.do")) {
-			command = new TeacherListCommand();
+			command = new TeacherListCommand(); //강사목록을 조회한 정보를 받아오는 클래스
 			command.execute(request, response);
 			viewPage = "/golfTeacher.jsp";
 		}else if(com.equals("/golf/class.do")) {
-			command = new ClassListCommand();
+			command = new ClassListCommand(); //수강신청에 필요한 정보를 받아오는 클래스
 			command.execute(request, response);
 			viewPage = "/golfapply.jsp";
 		}else if(com.equals("/golf/apply.do")) {
-			command = new ClassApplyCommand();
+			command = new ClassApplyCommand(); //작성된 수강신청 정보를 db에 추가하는 클래스
 			command.execute(request, response);
 			viewPage = "/golf.jsp";
 		}else if(com.equals("/golf/member.do")) {
-			command = new MemberListCommand();
+			command = new MemberListCommand(); //작성된 수강신청 정보를 받아오는 클래스
 			command.execute(request, response);
 			viewPage = "/golfmember.jsp";
 		}else if (com.equals("/golf/teachersales.do")) {
-			command = new TeacherSalesListCommand();
+			command = new TeacherSalesListCommand(); //강사 매출 정보를 받아오는 클래스
 			command.execute(request, response);
 			viewPage = "/golfTeacherSales.jsp";
 		}

@@ -25,6 +25,7 @@
 <script type="text/javascript">
 	var memberGrade='일반';
 	$(document).ready(function(){
+		/* 회원이름 변경시 회원번호 변경과 회원등급에 따른 가격할인을 설정하는 이벤트 */
 		$("#cName").change(function(){
 			$("#cNo").val($("#cName option:selected").val());
 			memberGrade=$("#cName option:selected").attr('class');
@@ -37,6 +38,7 @@
 				$("#tuition").val("");
 			}
 		})
+		/* 강의명 변경시 회원등급에 따른 가격할인을 설정하는 이벤트 */
 		$("#teacherCode").change(function(){
 			$("#tuition").val($("#teacherCode option:selected").attr('class'));
 			if(memberGrade=='VIP'){
@@ -45,6 +47,7 @@
 				$("#tuition").val($("#teacherCode option:selected").attr('class'));
 			}
 		})
+		/* 폼에 입력되지 않은 항목이 존재하거나 형식에 맞지않는 항목이 존재할경우 서브밋을 중지하는 이벤트 */
 		$("form").submit(function(e){
 			if($("#registMonth").val()==""||$("#cNo").val()==""||$("#tuition").val()==""||$("#classArea option:selected").val()=="0"){
 				alert("입력되지 않은 항목이 존재합니다.");

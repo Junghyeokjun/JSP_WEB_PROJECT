@@ -23,7 +23,7 @@ public class GolfClassDao {
 		}
 	}
 	public List<GolfClassDto> list() {
-
+		//수강 정보를 받아오는 함수
 		List<GolfClassDto> dtos = new ArrayList<GolfClassDto>();
 
 		Connection conn = null;
@@ -66,7 +66,7 @@ public class GolfClassDao {
 
 	}
 	public List<GolfClassDto> distinctList() {
-
+		//중복을 제거한 수강장소 정보만을 받아오는 함수
 		List<GolfClassDto> dtos = new ArrayList<GolfClassDto>();
 
 		Connection conn = null;
@@ -110,6 +110,7 @@ public class GolfClassDao {
 	}
 
 	public int apply(GolfClassDto dto) {
+		//수강신청 정보를 db에 추가하는 함수
 
 		Connection conn = null;
 		PreparedStatement psmt = null;

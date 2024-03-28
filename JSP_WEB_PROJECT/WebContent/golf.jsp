@@ -22,6 +22,7 @@
 
 </style>
 <script type="text/javascript">
+	/* 수강신청 실패시 사용자에게 실패를 인지시킬 팝업창을 띄우는 이벤트 */
 	$(document).ready(function(){
 		if($("#success").attr('class')=='0'){
 			alert('수강신청에 실패하였습니다.');
@@ -85,7 +86,7 @@
       <!-- table end -->
       <div class="container text-center">
         <h1 class="my-5">골프연습장 회원관리 프로그램</h1>
-        <span id="success" class="${resultNo}"></span>
+        <span id="success" class="${resultNo}"></span><!-- 수강신청 실패시 반환값을 보관할 태그  -->
       </div>
       <!-- table end -->
     </div>
