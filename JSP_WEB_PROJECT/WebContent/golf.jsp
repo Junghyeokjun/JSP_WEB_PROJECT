@@ -65,6 +65,9 @@
           <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav ">
               <li class="nav-item mx-2">
+                <a class="nav-link text-white fw-bold" href="${pageContext.request.contextPath}/golf.jsp">홈으로</a>
+              </li>
+              <li class="nav-item mx-2">
                 <a class="nav-link text-white fw-bold"  href="${pageContext.request.contextPath}/golf/teacher.do">강사조회</a>
               </li>
               <li class="nav-item mx-2">
@@ -75,9 +78,6 @@
               </li>
               <li class="nav-item mx-2">
                 <a class="nav-link text-white fw-bold" href="${pageContext.request.contextPath}/golf/teachersales.do">강사매출현황</a>
-              </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link text-white fw-bold" href="${pageContext.request.contextPath}/golf.jsp">홈으로</a>
               </li>
             </ul>
           </div>
