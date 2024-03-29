@@ -17,7 +17,7 @@ import Command.VoteviewCommand;
 import Command.MListCommand;
 
 
-@WebServlet("*.do")
+@WebServlet("/vote/*")
 public class VoteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;  
    
@@ -48,36 +48,36 @@ public class VoteController extends HttpServlet {
 		String context = request.getContextPath();
 		String com = uri.substring(context.length());
 		
-		if(com.contentEquals("/main.do")) {
+		if(com.contentEquals("/vote/main.do")) {
 			System.out.println("index.jsp ..");
-			viewPage = "index.jsp";
-		}else if(com.contentEquals("/memberList.do")) {
+			viewPage = "/index.jsp";
+		}else if(com.contentEquals("/vote/memberList.do")) {
 			command = new MListCommand();
 			command.execute(request,response);
 			System.out.println("memberList.jsp ..");
-			viewPage = "memberList.jsp";
-		}else if(com.contentEquals("/voteList.do")) {
+			viewPage = "/memberList.jsp";
+		}else if(com.contentEquals("/vote/voteList.do")) {
 			command = new VListCommand();
 			command.execute(request,response);
 			System.out.println("voteList.jsp ..");
-			viewPage = "voteList.jsp";
-		}else if(com.contentEquals("/voteResult.do")) {
+			viewPage = "/voteList.jsp";
+		}else if(com.contentEquals("/vote/voteResult.do")) {
 			command = new VResultCommand();
 			command.execute(request,response);
 			System.out.println("voteResult.jsp ..");
-			viewPage = "voteResult.jsp";
-		}else if(com.contentEquals("/voteMember.do")) {
-			viewPage = "voteMember.jsp";
-		}else if(com.contentEquals("/write.do")) {
+			viewPage = "/voteResult.jsp";
+		}else if(com.contentEquals("/vote/voteMember.do")) {
+			viewPage = "/voteMember.jsp";
+		}else if(com.contentEquals("/vote/write.do")) {
 			command = new VoteCommand();
 			command.execute(request,response);
 			System.out.println("write.do ..");
-			viewPage = "voteView.do";
-		}else if(com.contentEquals("/voteView.do")) {
+			viewPage = "/vote/voteView.do";
+		}else if(com.contentEquals("/vote/voteView.do")) {
 			command = new VoteviewCommand();
 			command.execute(request,response);
 			System.out.println("voteView.do ..");
-			viewPage = "voteView.jsp";
+			viewPage = "/voteView.jsp";
 		}
 		
 		

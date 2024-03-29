@@ -6,23 +6,24 @@
 <head>
 <meta charset="UTF-8">
 <title>voteResult</title>
-<link rel="stylesheet" href="style.css?ver=1">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/style.css">
 </head>
 <body>
-<header>
+<%@ include file="../voteNav.jsp" %>
+<header class="d-flex align-items-center justify-content-center">
 	<h1>지역구의원투표 프로그램 ver 2024-03</h1>
 </header>
-<nav>
-	<ul>
-		<li><a href="memberList.do">∙후보조회</a></li>
-		<li><a href="voteMember.do">∙투표하기</a></li>
-		<li><a href="voteList.do">∙투표검수조회</a></li>
-		<li><a href="voteResult.do">∙후보자등수</a></li>
-		<li><a href="main.do">∙홈으로</a></li>	
+<nav id="mainNav">
+	<ul id="mainUl">
+		<li><a href="${pageContext.request.contextPath }/vote/memberList.do">∙후보조회</a></li>
+		<li><a href="${pageContext.request.contextPath }/vote/voteMember.do">∙투표하기</a></li>
+		<li><a href="${pageContext.request.contextPath }/vote/voteList.do">∙투표검수조회</a></li>
+		<li><a href="${pageContext.request.contextPath }/vote/voteResult.do">∙후보자등수</a></li>
+		<li><a href="${pageContext.request.contextPath }/vote/main.do">∙홈으로</a></li>	
 	</ul>
 </nav>
 <section>
-<h2>∙ 후보자등수 ∙</h2>
+<h2 class="d-flex align-items-center justify-content-center">∙ 후보자등수 ∙</h2>
 <div class="table">
 	<table>
 		<tr>

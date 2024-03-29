@@ -19,7 +19,7 @@
 	crossorigin="anonymous">
 	
 </script> -->
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
 <script>
 function validateForm() {
@@ -72,16 +72,16 @@ function validateForm() {
 </header>
 <nav id="mainNav">
 	<ul id="mainUl">
-		<li><a href="memberList.do">∙후보조회</a></li>
-		<li><a href="voteMember.do">∙투표하기</a></li>
-		<li><a href="voteList.do">∙투표검수조회</a></li>
-		<li><a href="voteResult.do">∙후보자등수</a></li>
-		<li><a href="main.do">∙홈으로</a></li>	
+		<li><a href="${pageContext.request.contextPath }/vote/memberList.do">∙후보조회</a></li>
+		<li><a href="${pageContext.request.contextPath }/vote/voteMember.do">∙투표하기</a></li>
+		<li><a href="${pageContext.request.contextPath }/vote/voteList.do">∙투표검수조회</a></li>
+		<li><a href="${pageContext.request.contextPath }/vote/voteResult.do">∙후보자등수</a></li>
+		<li><a href="${pageContext.request.contextPath }/vote/main.do">∙홈으로</a></li>	
 	</ul>
 </nav>
 <section>
-<h2>∙ 투표하기 ∙</h2>
-<form id=" joinForm" name="frm" method="post" action="write.do">
+<h2 class="d-flex align-items-center justify-content-center">∙ 투표하기 ∙</h2>
+<form id=" joinForm" name="frm" method="post" action="${pageContext.request.contextPath }/vote/write.do">
 <div class="table">
 	<table>
 		<tr>
