@@ -1,5 +1,5 @@
 --------------------------------------------------------
---  ÆÄÀÏÀÌ »ý¼ºµÊ - ¸ñ¿äÀÏ-3¿ù-28-2024   
+--  íŒŒì¼ì´ ìƒì„±ë¨ - ëª©ìš”ì¼-3ì›”-28-2024   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Table MEMBER_TBL_02
@@ -20,14 +20,12 @@
   TABLESPACE "USERS" ;
 REM INSERTING into SCOTT.MEMBER_TBL_02
 SET DEFINE OFF;
-Insert into SCOTT.MEMBER_TBL_02 (MEMBERNUM,MEMBERNAME,PHONE,ADDRESS,JOINDATE,GRADE,CITY) values (100008,'ÅõÅõÅõ','22-222-2222','³ª³ª³ª³ª',to_date('24/03/28','RR/MM/DD'),'B','07');
-Insert into SCOTT.MEMBER_TBL_02 (MEMBERNUM,MEMBERNAME,PHONE,ADDRESS,JOINDATE,GRADE,CITY) values (100007,'Å×½ºÆ®ÁßÁß','002-220-1231','¼º³²½Ã µ¿µ¿µ¿ ºÀºÀºÀ',to_date('24/03/28','RR/MM/DD'),'A','06');
-Insert into SCOTT.MEMBER_TBL_02 (MEMBERNUM,MEMBERNAME,PHONE,ADDRESS,JOINDATE,GRADE,CITY) values (100001,'±èÇàº¹','010-1111-2222','¼­¿ï µ¿´ë¹®±¸ ÈÖ°æ1µ¿',to_date('15/12/02','RR/MM/DD'),'A','01');
-Insert into SCOTT.MEMBER_TBL_02 (MEMBERNUM,MEMBERNAME,PHONE,ADDRESS,JOINDATE,GRADE,CITY) values (100002,'ÀÌÃàº¹','010-1111-3333','¼­¿ï µ¿´ë¹®±¸ ÈÖ°æ2µ¿',to_date('15/12/06','RR/MM/DD'),'B','01');
-Insert into SCOTT.MEMBER_TBL_02 (MEMBERNUM,MEMBERNAME,PHONE,ADDRESS,JOINDATE,GRADE,CITY) values (100003,'Àå¹ÏÀ½','010-1111-4444','¿ï¸ª±º ¿ï¸ªÀ¾ µ¶µµ1¸®',to_date('15/10/01','RR/MM/DD'),'B','30');
-Insert into SCOTT.MEMBER_TBL_02 (MEMBERNUM,MEMBERNAME,PHONE,ADDRESS,JOINDATE,GRADE,CITY) values (100004,'ÃÖ»ç¶û','010-1111-5555','¿ï¸ª±º ¿ï¸ªÀ¾ µ¶µµ2¸®',to_date('15/11/13','RR/MM/DD'),'A','30');
-Insert into SCOTT.MEMBER_TBL_02 (MEMBERNUM,MEMBERNAME,PHONE,ADDRESS,JOINDATE,GRADE,CITY) values (100005,'ÁøÆòÈ­','010-1111-6666','Á¦ÁÖµµ Á¦ÁÖ½Ã ¿Ü³ª¹«°ñ',to_date('15/12/25','RR/MM/DD'),'B','60');
-Insert into SCOTT.MEMBER_TBL_02 (MEMBERNUM,MEMBERNAME,PHONE,ADDRESS,JOINDATE,GRADE,CITY) values (100006,'Â÷°ø´Ü','010-1111-7777','Á¦ÁÖµµ Á¦ÁÖ½Ã °¨³ª¹«°ñ',to_date('15/12/11','RR/MM/DD'),'C','60');
+Insert into SCOTT.MEMBER_TBL_02 (MEMBERNUM,MEMBERNAME,PHONE,ADDRESS,JOINDATE,GRADE,CITY) values (100001,'ê¹€í–‰ë³µ','010-1111-2222','ì„œìš¸ ë™ëŒ€ë¬¸êµ¬ íœ˜ê²½1ë™',to_date('15/12/02','RR/MM/DD'),'A','01');
+Insert into SCOTT.MEMBER_TBL_02 (MEMBERNUM,MEMBERNAME,PHONE,ADDRESS,JOINDATE,GRADE,CITY) values (100002,'ì´ì¶•ë³µ','010-1111-3333','ì„œìš¸ ë™ëŒ€ë¬¸êµ¬ íœ˜ê²½2ë™',to_date('15/12/06','RR/MM/DD'),'B','01');
+Insert into SCOTT.MEMBER_TBL_02 (MEMBERNUM,MEMBERNAME,PHONE,ADDRESS,JOINDATE,GRADE,CITY) values (100003,'ìž¥ë¯¿ìŒ','010-1111-4444','ìš¸ë¦‰êµ° ìš¸ë¦‰ì ë…ë„1ë¦¬',to_date('15/10/01','RR/MM/DD'),'B','30');
+Insert into SCOTT.MEMBER_TBL_02 (MEMBERNUM,MEMBERNAME,PHONE,ADDRESS,JOINDATE,GRADE,CITY) values (100004,'ìµœì‚¬ëž‘','010-1111-5555','ìš¸ë¦‰êµ° ìš¸ë¦‰ì ë…ë„2ë¦¬',to_date('15/11/13','RR/MM/DD'),'A','30');
+Insert into SCOTT.MEMBER_TBL_02 (MEMBERNUM,MEMBERNAME,PHONE,ADDRESS,JOINDATE,GRADE,CITY) values (100005,'ì§„í‰í™”','010-1111-6666','ì œì£¼ë„ ì œì£¼ì‹œ ì™¸ë‚˜ë¬´ê³¨',to_date('15/12/25','RR/MM/DD'),'B','60');
+Insert into SCOTT.MEMBER_TBL_02 (MEMBERNUM,MEMBERNAME,PHONE,ADDRESS,JOINDATE,GRADE,CITY) values (100006,'ì°¨ê³µë‹¨','010-1111-7777','ì œì£¼ë„ ì œì£¼ì‹œ ê°ë‚˜ë¬´ê³¨',to_date('15/12/11','RR/MM/DD'),'C','60');
 --------------------------------------------------------
 --  DDL for Index MEMBER_TBL_02_PK
 --------------------------------------------------------
