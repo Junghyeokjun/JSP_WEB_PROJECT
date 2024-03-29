@@ -1,5 +1,5 @@
-jsp/servlet branch : shop/golf/vote 
-Merge only projects from that branch
+jsp/servlet branch : shop/golf/vote . 
+Merge only projects from that branch.
 
 - 서블릿 브랜치는 나열한 것들만 해당된다. 
 - 이 브랜치의 프로젝트들만 병합한다.
