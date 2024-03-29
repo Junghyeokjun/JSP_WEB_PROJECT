@@ -75,7 +75,7 @@
 		<nav class="navbar navbar-expand-lg bg-body-tertiary"
 			data-bs-theme="dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#">게임 사이트</a>
+				<a class="navbar-brand" href="#">열심히하조</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
