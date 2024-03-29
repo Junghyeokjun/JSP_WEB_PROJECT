@@ -23,7 +23,12 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 	$(document).ready(function() {
-		$("#joinForm").submit(function(event) {
+		/* $("#joinForm").submit(function(event) {
+			if (!validateForm()) {
+				event.preventDefault();
+			}
+		}); */
+		$(document).on("submit","#joinForm",function(event) {
 			if (!validateForm()) {
 				event.preventDefault();
 			}
@@ -31,17 +36,29 @@
 	});
 
 	function validateForm() {
+		let memberNo = $("input[name='memberNo']").val();
+		let memberName = $("input[name='memberName']").val();
 		let phone = $("input[name='phone']").val();
 		let address = $("input[name='address']").val();
+		let joinDate = $("input[name='joinDate']").val();
 		let grade = $("input[name='grade']").val();
 		let city = $("input[name='city']").val();
 
 		// 간단한 유효성 검사 예시
-		if(phone === ""){
+		if(memberNo === ""){
+			alert("회원번호를 입력하세요.");
+			return false;
+		}else if(memberName === ""){
+			alert("회원성명을 입력하세요.");
+			return false;
+		}else if(phone === ""){
 			alert("회원전화를 입력하세요.");
 			return false;
 		}else if(address === ""){
 			alert("회원주소를 입력하세요.");
+			return false;
+		}else if(joinDate === ""){
+			alert("가입일자를 입력하세요.");
 			return false;
 		}else if(grade === ""){
 			alert("고객등급을 입력하세요.");
