@@ -87,7 +87,7 @@
 						<li class="nav-item"><a class="nav-link" aria-current="page"
 							href="${pageContext.request.contextPath}/golf.jsp">골프</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/rsp/rsp_game">투표</a></li>
+							href="${pageContext.request.contextPath}/vote.jsp">투표</a></li>
 						<li class="nav-item"><a class="nav-link active"
 							href="${pageContext.request.contextPath}/shop/index.do">쇼핑몰</a></li>
 					</ul>
