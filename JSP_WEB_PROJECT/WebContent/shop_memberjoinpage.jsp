@@ -85,11 +85,11 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
 						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="${pageContext.request.contextPath}/lotto/list.do">골프</a></li>
+							href="${pageContext.request.contextPath}/golf.jsp">골프</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/rsp/rsp_game">투표</a></li>
 						<li class="nav-item"><a class="nav-link active"
-							href="${pageContext.request.contextPath}/board/list.do">쇼핑몰</a></li>
+							href="${pageContext.request.contextPath}/shop/index.do">쇼핑몰</a></li>
 					</ul>
 					<form class="d-flex" role="search">
 						<input class="form-control me-2" type="search"
