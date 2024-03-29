@@ -8,6 +8,16 @@ public class VoteDto {
 	String v_time;
 	String v_confirm;
 
+	public VoteDto(String v_name, String v_jumin, String v_age, String v_gender, String m_no, String v_time,String v_confirm) {
+		this.v_name = v_name;
+		this.v_jumin = v_jumin;
+		this.v_age = v_age;
+		this.v_gender =v_gender;
+		this.m_no = m_no;
+		this.v_time = v_time;
+		this.v_confirm=v_confirm;
+	}
+
 	public String getV_name() {
 		return v_name;
 	}

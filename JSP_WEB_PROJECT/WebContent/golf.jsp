@@ -33,7 +33,7 @@
   <div class="d-flex flex-column justify-content-between" style="height: 100vh;">
     <nav class="navbar navbar-expand-lg bg-dark " data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">게임사이트</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/golf.jsp">열심히하조</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -41,10 +41,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link disabled" aria-current="page" href="#">투표</a>
+              <a class="nav-link " aria-current="page" href="${pageContext.request.contextPath}/index.jsp">투표</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true" href="#">홈쇼핑</a>
+              <a class="nav-link " aria-disabled="true" href="${pageContext.request.contextPath}/shop/index.do">홈쇼핑</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-disabled="true" href="${pageContext.request.contextPath}/golf.jsp">골프</a>

@@ -4,6 +4,12 @@ public class VoteResult {
 	String m_name;
 	String v_total;
 
+	public VoteResult(String m_no, String m_name, String v_total) {
+		this.m_no=m_no;
+		this.m_name=m_name;
+		this.v_total=v_total;
+	}
+
 	public String getM_no() {
 		return m_no;
 	}

@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import Command.VCommand;
 import Command.VListCommand;
+import Command.VResultCommand;
+import Command.VoteCommand;
+import Command.VoteviewCommand;
+import Command.MListCommand;
 
 
 @WebServlet("*.do")
@@ -48,31 +52,47 @@ public class VoteController extends HttpServlet {
 			System.out.println("index.jsp ..");
 			viewPage = "index.jsp";
 		}else if(com.contentEquals("/memberList.do")) {
-			command = new VListCommand();
+			command = new MListCommand();
 			command.execute(request,response);
 			System.out.println("memberList.jsp ..");
 			viewPage = "memberList.jsp";
+		}else if(com.contentEquals("/voteList.do")) {
+			command = new VListCommand();
+			command.execute(request,response);
+			System.out.println("voteList.jsp ..");
+			viewPage = "voteList.jsp";
+		}else if(com.contentEquals("/voteResult.do")) {
+			command = new VResultCommand();
+			command.execute(request,response);
+			System.out.println("voteResult.jsp ..");
+			viewPage = "voteResult.jsp";
+		}else if(com.contentEquals("/voteMember.do")) {
+			viewPage = "voteMember.jsp";
+		}else if(com.contentEquals("/write.do")) {
+			command = new VoteCommand();
+			command.execute(request,response);
+			System.out.println("write.do ..");
+			viewPage = "voteView.do";
+		}else if(com.contentEquals("/voteView.do")) {
+			command = new VoteviewCommand();
+			command.execute(request,response);
+			System.out.println("voteView.do ..");
+			viewPage = "voteView.jsp";
 		}
-//		else if (com.equals("/write_view.do")) {
-//			viewPage = "write_view.jsp";
-//		}
 		
-//		switch(command) {
-//		case "/main.do" : 		
-//			site = "index.jsp";
-//			break;
+		
 //		case "/memberList.do" : 			
 //			site = vote.selectMember(request, response);
-//			break;
-//		case "/voteMember.do" : 			
-//			site = "voteMember.jsp";
 //			break;
 //		case "/voteList.do" : 		
 //			site = vote.selectAll(request, response);
 //			break;
+		
+		
 //		case "/voteResult.do" : 			
 //			site = vote.selectResult(request, response);
 //			break;
+		
 //		case "/vote.do" : 
 //			int result = vote.insertVote(request, response);
 //			response.setContentType("text/html; charset=UTF-8");
