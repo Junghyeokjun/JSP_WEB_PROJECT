@@ -1,0 +1,64 @@
+--------------------------------------------------------
+--  파일이 생성됨 - 금요일-3월-29-2024   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table TBL_VOTE_202403
+--------------------------------------------------------
+
+  CREATE TABLE "SCOTT"."TBL_VOTE_202403" 
+   (	"V_JUMIN" CHAR(13 BYTE), 
+	"V_NAME" VARCHAR2(20 BYTE), 
+	"M_NO" CHAR(1 BYTE), 
+	"V_TIME" CHAR(4 BYTE), 
+	"V_AREA" CHAR(20 BYTE), 
+	"V_CONFIRM" CHAR(1 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+REM INSERTING into SCOTT.TBL_VOTE_202403
+SET DEFINE OFF;
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('99010110001  ','김유권','1','0930','제1투표장       ','N');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('89010120002  ','이유권','2','0930','제1투표장       ','N');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('69010110003  ','박유권','3','0930','제1투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('59010120004  ','홍유권','4','0930','제1투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('79010110005  ','조유권','5','0930','제1투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('89010120006  ','최유권','1','0930','제1투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('59010110007  ','지유권','1','0930','제1투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('49010120008  ','장유권','3','0930','제1투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('79010110009  ','정유권','3','0930','제1투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('89010120010  ','강유권','4','0930','제1투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('99010110011  ','신유권','5','0930','제1투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('79010120012  ','오유권','1','1330','제1투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('69010110013  ','현유권','4','1330','제2투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('89010110014  ','왕유권','2','1330','제2투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('99010110015  ','유유권','3','1330','제2투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('79010110016  ','한유권','2','1330','제2투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('89010110017  ','문유권','4','1330','제2투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('99010110018  ','양유권','2','1330','제2투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('99010110019  ','구유권','4','1330','제2투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('79010110020  ','황유권','5','1330','제2투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('69010110021  ','배유권','3','1330','제2투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('79010110022  ','전유권','3','1330','제2투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('99010110023  ','고유권','1','1330','제2투표장       ','Y');
+Insert into SCOTT.TBL_VOTE_202403 (V_JUMIN,V_NAME,M_NO,V_TIME,V_AREA,V_CONFIRM) values ('59010110024  ','권유권','3','1330','제2투표장       ','Y');
+--------------------------------------------------------
+--  DDL for Index SYS_C007069
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SCOTT"."SYS_C007069" ON "SCOTT"."TBL_VOTE_202403" ("V_JUMIN") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  Constraints for Table TBL_VOTE_202403
+--------------------------------------------------------
+
+  ALTER TABLE "SCOTT"."TBL_VOTE_202403" ADD PRIMARY KEY ("V_JUMIN")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "SCOTT"."TBL_VOTE_202403" MODIFY ("V_JUMIN" NOT NULL ENABLE);
