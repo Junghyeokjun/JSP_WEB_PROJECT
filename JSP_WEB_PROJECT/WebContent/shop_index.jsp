@@ -45,11 +45,6 @@
 						<li class="nav-item"><a class="nav-link active"
 							href="${pageContext.request.contextPath}/board/list.do">쇼핑몰</a></li>
 					</ul>
-					<form class="d-flex" role="search">
-						<input class="form-control me-2" type="search"
-							placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success" type="submit">Search</button>
-					</form>
 				</div>
 			</div>
 		</nav>
@@ -95,11 +90,11 @@
 	</section>
 	<footer class="text-center">
 		<div class="d-flex justify-content-evenly align-items-center" style="height: 50px">
-			<div class="col"></div>
+			<div class="col-2"></div>
 			<div class="col">
-				<p class="m-0">© Company 2023-2024</p>
+				<p class="m-0">HRDKOREA Copyright©2016 All rights reserved. Human Resources Development Service of Korea</p>
 			</div>
-			<div class="col">
+			<div class="col-2">
 				<p id="nowDate" class="m-0 border p-1 rounded bg-info text-white"></p>
 			</div>
 			<script>

@@ -178,27 +178,30 @@
 			</form>
 		</div>
 	</section>
-	<footer class="text-center border-top border-secondary">
-		<div class="d-flex justify-content-evenly align-items-center"
-			style="height: 50px">
-			<div class="col"></div>
+	<footer class="text-center">
+		<div class="d-flex justify-content-evenly align-items-center" style="height: 50px">
+			<div class="col-2"></div>
 			<div class="col">
-				<p class="m-0">© Company 2023-2024</p>
+				<p class="m-0">HRDKOREA Copyright©2016 All rights reserved. Human Resources Development Service of Korea</p>
 			</div>
-			<div class="col">
+			<div class="col-2">
 				<p id="nowDate" class="m-0 border p-1 rounded bg-info text-white"></p>
 			</div>
 			<script>
 				function time() {
 					let nowDate = new Date();
 					let nowHour = nowDate.getHours();
-					let nowMinute = nowDate.getMinutes();
-					let nowSecond = nowDate.getSeconds();
-
-					let dateStr = "현재 시각 : " + nowHour + "시 " + nowMinute
-							+ "분 " + nowSecond + "초";
-
-					let nowDateElement = document.getElementById("nowDate");
+					let nowMinute = nowDate
+							.getMinutes();
+					let nowSecond = nowDate
+							.getSeconds();
+	
+					let dateStr = "현재 시각 : " + nowHour
+							+ "시 " + nowMinute + "분 "
+							+ nowSecond + "초";
+	
+					let nowDateElement = document
+							.getElementById("nowDate");
 					nowDateElement.innerHTML = dateStr;
 				}
 				setInterval(time, 1000);
